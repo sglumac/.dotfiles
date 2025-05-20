@@ -20,6 +20,16 @@ vim.diagnostic.config({
 -- Jump to the previous diagnostic (warning or error)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
 
+-- Toogle diagnostics
+vim.keymap.set('n', '<leader>ud', function()
+  vim.diagnostic.enable(       -- invert current state
+    not vim.diagnostic.is_enabled(nil, { bufnr = 0 }),
+    { bufnr = 0 }
+  )
+  print('Diagnostics: ' ..
+        (vim.diagnostic.is_enabled(nil, { bufnr = 0 }) and 'ON' or 'OFF'))
+end, { desc = 'Toggle diagnostics in current buffer' })
+
 
 -- Set tabs to 2 spaces
 vim.opt.tabstop = 2
@@ -69,6 +79,13 @@ vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnew<CR>', { noremap = true, sile
 
 -- Shortcut to copy the last message to the system clipboard
 vim.api.nvim_set_keymap('n', '<leader>my', ':lua vim.fn.setreg("+", vim.fn.execute("messages"))<CR>', { noremap = true, silent = true })
+
+-- Shortcut to copy the file path to the system clipboard
+vim.keymap.set('n', '<leader>py', function()
+  local path = vim.api.nvim_buf_get_name(0)
+  vim.fn.setreg('+', path)
+  print("Copied: " .. path)
+end, { noremap = true, silent = true })
 
 -- Rename symbol and all its references
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true })
