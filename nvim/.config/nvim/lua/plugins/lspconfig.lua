@@ -17,18 +17,19 @@ return {
       local clangdcapabilities = require('cmp_nvim_lsp').default_capabilities()
       clangdcapabilities.offsetEncoding = { "utf-8" }
 
-      lspconfig.clangd.setup{
+      vim.lsp.config('clangd', {
         cmd = {
           "clangd",
           "--background-index=false",  -- Disables background indexing to prevent excessive memory usage
           "--log=verbose",             -- Increases verbosity for debugging
         },
         capabilities = clangdcapabilities,
-      }
+      })
 
-      lspconfig.lua_ls.setup{}
-      lspconfig.cmake.setup{}
-      lspconfig.pyright.setup{}
+      vim.lsp.enable('pyright')
+      vim.lsp.enable('lua_ls')
+      vim.lsp.enable('cmake')
+      vim.lsp.enable('pyright')
 
       -- Set keybinding for applying LSP code actions
       vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
