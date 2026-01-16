@@ -1,4 +1,4 @@
-return {
+ return {
   {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'}, {'nvim-tree/nvim-web-devicons'} },
@@ -12,6 +12,7 @@ return {
       { '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>', desc = "Fuzzy Search" },
       { '<leader>fs', '<cmd>Telescope lsp_document_symbols<CR>', desc = "Document Symbols" },
       { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = "Fuzzy Search Current Buffer" },
+      { '<leader>fa', '<cmd>Telescope telescope-tabs list_tabs<CR>', desc = "Find Tabs" },
     },
     config = function()
       require('telescope').setup{
@@ -70,6 +71,13 @@ return {
     config = function()
       require("telescope").load_extension("fzf")
     end,
-  }
+  },
+  {
+    'LukasPietzschmann/telescope-tabs',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+        require('telescope-tabs').setup()
+    end,
+  },
 }
 
