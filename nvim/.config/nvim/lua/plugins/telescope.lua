@@ -15,7 +15,7 @@
       { '<leader>fa', '<cmd>Telescope telescope-tabs list_tabs<CR>', desc = "Find Tabs" },
     },
     config = function()
-      require('telescope').setup{
+      require('telescope').setup({
         defaults = {
           path_display = { "truncate" },
           mappings = {
@@ -52,6 +52,21 @@
           live_grep = {
             only_sort_text = true, -- Ensure fuzzy matching is applied
           },
+          lsp_document_symbols = {
+            previewer = true,
+            show_line = true,
+            symbol_width = 50,
+            fname_width = 50,
+            layout_strategy = "horizontal",  -- Force horizontal layout
+            layout_config = {
+              horizontal = {
+                preview_width = 0.5,
+                width = 0.9,
+                height = 0.8,
+                preview_cutoff = 1,  -- Critical: always show preview
+              },
+            },
+          },
         },
         extensions = {
           fzf = {
@@ -61,7 +76,7 @@
             case_mode = "smart_case",        -- Smart case matching
           },
         },
-      }
+      })
     end,
   },
   {
