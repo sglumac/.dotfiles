@@ -1,7 +1,11 @@
- return {
+return {
   {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'}, {'nvim-tree/nvim-web-devicons'} },
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-tree/nvim-web-devicons'},
+      -- {'nvim-telescope/telescope-symbols.nvim'},
+    },
     keys = {
       { '<leader>ff', '<cmd>Telescope find_files<CR>', desc = "Find Files" },
       { '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = "Live Grep" },
@@ -13,67 +17,110 @@
       { '<leader>fs', '<cmd>Telescope lsp_document_symbols<CR>', desc = "Document Symbols" },
       { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = "Fuzzy Search Current Buffer" },
       { '<leader>fa', '<cmd>Telescope telescope-tabs list_tabs<CR>', desc = "Find Tabs" },
+      { '<leader>fc', '<cmd>Telescope commands<CR>', desc = "Commands" },
+      { '<leader>fk', '<cmd>Telescope keymaps<CR>', desc = "Keymaps" },
+      { '<leader>fH', '<cmd>Telescope highlights<CR>', desc = "Highlight Groups" },
+      { '<leader>fm', '<cmd>Telescope marks<CR>', desc = "Marks" },
+      { '<leader>fj', '<cmd>Telescope jumplist<CR>', desc = "Jumplist" },
     },
     config = function()
+      local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
           path_display = { "truncate" },
           mappings = {
-            i = { -- Insert mode mappings
-              ["<C-j>"] = require('telescope.actions').move_selection_next, -- Move down
-              ["<C-k>"] = require('telescope.actions').move_selection_previous, -- Move up
+            i = {
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-n>"] = actions.cycle_history_next,
+              ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-c>"] = actions.close,
+              ["<ESC>"] = actions.close,
+              ["<CR>"] = actions.select_default + actions.center,
+              ["<C-u>"] = actions.preview_scrolling_up,
+              ["<C-d>"] = actions.preview_scrolling_down,
+              ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
             },
+            n = {
+              ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+              ["q"] = actions.close,
+            }
           },
           prompt_prefix = ": ",
           selection_caret = "> ",
           entry_prefix = "  ",
+          initial_mode = "insert",
+          selection_strategy = "reset",
           sorting_strategy = "ascending",
           layout_strategy = "horizontal",
           layout_config = {
             horizontal = {
               preview_width = 0.55,
               results_width = 0.8,
+              preview_cutoff = 1,
             },
             vertical = {
               mirror = false,
+              preview_cutoff = 1,
             },
+            width = 0.9,
+            height = 0.9,
           },
-          file_ignore_patterns = { "node_modules", ".git/" },
-          winblend = 0,
-          border = {},
+          file_ignore_patterns = {
+            "node_modules",
+            ".git/",
+            ".cache",
+            "__pycache__",
+            "*.pyc",
+            "*.o",
+            "*.a",
+            "*.out",
+            "*.class",
+          },
+          winblend = 10,
+          border = true,
           color_devicons = true,
+          set_env = { ["COLORTERM"] = "truecolor" },
         },
         pickers = {
           find_files = {
             theme = "dropdown",
             hidden = true,
-            previewer = true,
           },
           live_grep = {
-            only_sort_text = true, -- Ensure fuzzy matching is applied
+            only_sort_text = true,
+            additional_args = function()
+              return { "--hidden" }
+            end,
+          },
+          buffers = {
+            sort_lastused = true,
+            mappings = {
+              i = {
+                ["<c-d>"] = actions.delete_buffer,
+              }
+            }
+          },
+          lsp_references = {
+            show_line = false,
           },
           lsp_document_symbols = {
-            previewer = true,
             show_line = true,
             symbol_width = 50,
             fname_width = 50,
-            layout_strategy = "horizontal",  -- Force horizontal layout
-            layout_config = {
-              horizontal = {
-                preview_width = 0.5,
-                width = 0.9,
-                height = 0.8,
-                preview_cutoff = 1,  -- Critical: always show preview
-              },
-            },
           },
+          grep_string = {
+            only_sort_text = true,
+          },
+          current_buffer_fuzzy_find = {},
+          help_tags = {},
         },
         extensions = {
           fzf = {
-            fuzzy = true,                    -- Enable fuzzy matching
-            override_generic_sorter = true,  -- Replace the default generic sorter
-            override_file_sorter = true,     -- Replace the default file sorter
-            case_mode = "smart_case",        -- Smart case matching
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
           },
         },
       })
@@ -81,7 +128,7 @@
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",  -- Compiles the native binary
+    build = "make",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("telescope").load_extension("fzf")
@@ -91,7 +138,9 @@
     'LukasPietzschmann/telescope-tabs',
     dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
-        require('telescope-tabs').setup()
+      require('telescope-tabs').setup({
+        show_preview = true,
+      })
     end,
   },
 }
