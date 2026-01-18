@@ -4,10 +4,11 @@ return {
     requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-tree/nvim-web-devicons'},
-      -- {'nvim-telescope/telescope-symbols.nvim'},
     },
     keys = {
       { '<leader>ff', '<cmd>Telescope find_files<CR>', desc = "Find Files" },
+      { '<leader>fd', '<cmd>Telescope diagnostics<CR>', desc = "Check Diagnostics" },
+      { '<leader>fq', '<cmd>Telescope quickfix<CR>', desc = "Check Quickfix" },
       { '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = "Live Grep" },
       { '<leader>fb', '<cmd>Telescope buffers<CR>', desc = "List Buffers" },
       { '<leader>fh', '<cmd>Telescope help_tags<CR>', desc = "Help Tags" },
@@ -34,7 +35,7 @@ return {
               ["<C-k>"] = actions.move_selection_previous,
               ["<C-n>"] = actions.cycle_history_next,
               ["<C-p>"] = actions.cycle_history_prev,
-              ["<C-c>"] = actions.close,
+              ["<C-x>"] = actions.close,
               ["<ESC>"] = actions.close,
               ["<CR>"] = actions.select_default + actions.center,
               ["<C-u>"] = actions.preview_scrolling_up,
