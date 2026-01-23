@@ -1,5 +1,4 @@
--- Disable warning "Undefined global `vim`"
-_G.vim = vim
+_G.vim = vim -- Disable warning "Undefined global `vim`"
 
 require("general")
 
