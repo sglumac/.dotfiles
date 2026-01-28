@@ -1,7 +1,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    requires = {
+    dependencies = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-tree/nvim-web-devicons'},
     },
@@ -15,7 +15,6 @@ return {
       { '<leader>fr', '<cmd>Telescope lsp_references<CR>', desc = "LSP References" },
       { '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = "Grep Word Under Cursor" },
       { '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>', desc = "Fuzzy Search" },
-      { '<leader>fs', '<cmd>Telescope lsp_document_symbols<CR>', desc = "Document Symbols" },
       { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = "Fuzzy Search Current Buffer" },
       { '<leader>fa', '<cmd>Telescope telescope-tabs list_tabs<CR>', desc = "Find Tabs" },
       { '<leader>fc', '<cmd>Telescope commands<CR>', desc = "Commands" },
