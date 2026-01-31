@@ -3,7 +3,7 @@ return {
   config = function()
     require("aerial").setup({
       backends = { "lsp", "treesitter", "markdown" },
-      filter_kind = false,
+      filter_kind = false, -- :help SymbolKind
       layout = {
         default_direction = "right",
         max_width = math.floor(vim.o.columns * 0.5),
@@ -12,6 +12,10 @@ return {
       autojump = true,
       close_on_select = true,
       show_guides = true,
+      manage_folds = true,
+      link_folds_to_tree = true,
+      link_tree_to_folds = true,
+      open_folds_automatically = false,
     })
 
     vim.keymap.set("n", "<leader>ar", "<cmd>AerialToggle<CR>", { desc = "Toggle Aerial outline" })
