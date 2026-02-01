@@ -43,9 +43,6 @@ vim.opt.number = true  -- Enable line numbers
 -- Normal mode (use kj instead of Esc to exit)
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 
--- Repeat the last recorded macro
-vim.api.nvim_set_keymap('n', '<leader>r', '@@', { noremap = true, silent = true })
-
 -- Open Neovim configuration
 vim.api.nvim_set_keymap('n', '<leader>ev', ':edit ~/.config/nvim/init.lua | lcd ~/.config/nvim<CR>', { noremap = true, silent = true })
 
@@ -75,11 +72,11 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.keymap.set("n", "<Tab>", "gt", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-Tab>", "gT", { noremap = true, silent = true })
 
+-- Open a new tab
+vim.api.nvim_set_keymap('n', '<leader><Tab>', ':tabnew<CR>', { noremap = true, silent = true })
+
 -- Quit all open tabs and windows
 vim.api.nvim_set_keymap('n', '<leader>qa', ':qa<CR>', { noremap = true, silent = true })
-
--- Open a new tab
-vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
 
 -- Shortcut to copy the last message to the system clipboard
 vim.api.nvim_set_keymap('n', '<leader>my', ':lua vim.fn.setreg("+", vim.fn.execute("messages"))<CR>', { noremap = true, silent = true })
