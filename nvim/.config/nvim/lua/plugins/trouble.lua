@@ -1,19 +1,13 @@
 return {
   "folke/trouble.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
-    focus = true,
+    use_diagnostic_signs = true,
+    focust = true,
   },
-  cmd = "Trouble",
   keys = {
-    {
-      "<leader>xx",
-      "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Diagnostics (Trouble)",
-    },
-    {
-      "<leader>xz",
-      "<cmd>Trouble qflist toggle<cr>",
-      desc = "Quickfix List (Trouble)",
-    },
+    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+    { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix (Trouble)" },
+    { "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
   },
 }
