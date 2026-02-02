@@ -1,7 +1,12 @@
--- Set the leader key to '\'
+-- Set the leader key to ' '
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Enables reading .nvim.lua in project root
+vim.opt.exrc = true
+vim.opt.secure = true
+
+-- Diagnostic view
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -99,3 +104,18 @@ vim.keymap.set('n', '<leader>nl', ':nohlsearch<CR>', { desc = 'Clear search high
 -- Color scheme
 vim.opt.termguicolors = true
 vim.opt.background = "light"
+
+-- Auto-detect external file changes
+vim.api.nvim_create_augroup("AutoCheckTime", { clear = true })
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+  group = "AutoCheckTime",
+  pattern = "*",
+  command = "silent! checktime",
+})
+
+vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave" }, {
+  group = "AutoCheckTime",
+  pattern = "*",
+  command = "silent! checktime",
+})
