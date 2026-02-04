@@ -14,7 +14,7 @@ vim.diagnostic.config({
   severity_sort = true,
   float = {
     border = "rounded",
-    source = "always",
+    source = true,
     focusable = false,
   },
 })
@@ -30,11 +30,11 @@ vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = t
 -- Toogle diagnostics
 vim.keymap.set('n', '<leader>ud', function()
   vim.diagnostic.enable( -- invert current state
-    not vim.diagnostic.is_enabled(nil, { bufnr = 0 }),
+    not vim.diagnostic.is_enabled({ bufnr = 0 }),
     { bufnr = 0 }
   )
   print('Diagnostics: ' ..
-    (vim.diagnostic.is_enabled(nil, { bufnr = 0 }) and 'ON' or 'OFF'))
+    (vim.diagnostic.is_enabled({ bufnr = 0 }) and 'ON' or 'OFF'))
 end, { desc = 'Toggle diagnostics in current buffer' })
 
 -- Copy current diagnostic
