@@ -20,10 +20,12 @@ vim.diagnostic.config({
 })
 
 -- Jump to the next diagnostic (warning or error)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end,
+  { noremap = true, silent = true })
 
 -- Jump to the previous diagnostic (warning or error)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end,
+  { noremap = true, silent = true })
 
 -- Toogle diagnostics
 vim.keymap.set('n', '<leader>ud', function()
@@ -34,6 +36,20 @@ vim.keymap.set('n', '<leader>ud', function()
   print('Diagnostics: ' ..
     (vim.diagnostic.is_enabled(nil, { bufnr = 0 }) and 'ON' or 'OFF'))
 end, { desc = 'Toggle diagnostics in current buffer' })
+
+-- Copy current diagnostic
+vim.keymap.set('n', '<leader>dy', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local diags = vim.diagnostic.get(bufnr, { lnum = row - 1 })
+  if #diags == 0 then
+    vim.notify("No diagnostics on this line", vim.log.levels.INFO)
+    return
+  end
+  local text = diags[1].message
+  vim.fn.setreg('+', text)
+  vim.notify("Diagnostic copied to clipboard", vim.log.levels.INFO)
+end, { desc = "Copy diagnostic under cursor to system clipboard" })
 
 
 -- Set tabs to 2 spaces
@@ -100,8 +116,6 @@ end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true })
 
 -- Clear search highlight
-vim.keymap.set('n', '<leader>nl', ':nohlsearch<CR>', { desc = 'Clear search highlight' })
-
 vim.keymap.set('n', '<leader>nl', ':nohlsearch<CR>', { desc = 'Clear search highlight' })
 
 -- Color scheme
