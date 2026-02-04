@@ -20,36 +20,38 @@ vim.diagnostic.config({
 })
 
 -- Jump to the next diagnostic (warning or error)
- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
 
 -- Jump to the previous diagnostic (warning or error)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
 
 -- Toogle diagnostics
 vim.keymap.set('n', '<leader>ud', function()
-  vim.diagnostic.enable(       -- invert current state
+  vim.diagnostic.enable( -- invert current state
     not vim.diagnostic.is_enabled(nil, { bufnr = 0 }),
     { bufnr = 0 }
   )
   print('Diagnostics: ' ..
-        (vim.diagnostic.is_enabled(nil, { bufnr = 0 }) and 'ON' or 'OFF'))
+    (vim.diagnostic.is_enabled(nil, { bufnr = 0 }) and 'ON' or 'OFF'))
 end, { desc = 'Toggle diagnostics in current buffer' })
 
 
 -- Set tabs to 2 spaces
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true  -- Use spaces instead of tab characters
+vim.opt.expandtab = true -- Use spaces instead of tab characters
 vim.opt.softtabstop = 2
 
 -- General Neovim settings
-vim.opt.number = true  -- Enable line numbers
+vim.opt.number = true -- Enable line numbers
 
--- Normal mode (use kj instead of Esc to exit)
+-- Exit insert/terminal mode (use kj to exit)
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('t', 'kj', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Open Neovim configuration
-vim.api.nvim_set_keymap('n', '<leader>ev', ':edit ~/.config/nvim/init.lua | lcd ~/.config/nvim<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ev', ':edit ~/.config/nvim/init.lua | lcd ~/.config/nvim<CR>',
+  { noremap = true, silent = true })
 
 -- Copy to system clipboard (<leader>y) and paste from clipboard (<leader>p)
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
@@ -84,7 +86,8 @@ vim.api.nvim_set_keymap('n', '<leader><Tab>', ':tabnew<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>qa', ':qa<CR>', { noremap = true, silent = true })
 
 -- Shortcut to copy the last message to the system clipboard
-vim.api.nvim_set_keymap('n', '<leader>my', ':lua vim.fn.setreg("+", vim.fn.execute("messages"))<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>my', ':lua vim.fn.setreg("+", vim.fn.execute("messages"))<CR>',
+  { noremap = true, silent = true })
 
 -- Shortcut to copy the file path to the system clipboard
 vim.keymap.set('n', '<leader>py', function()
