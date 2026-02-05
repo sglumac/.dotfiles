@@ -121,6 +121,7 @@ vim.keymap.set('n', '<leader>nl', ':nohlsearch<CR>', { desc = 'Clear search high
 -- Color scheme
 vim.opt.termguicolors = true
 vim.opt.background = "light"
+vim.opt.cursorline = true
 
 -- Auto-detect external file changes
 vim.api.nvim_create_augroup("AutoCheckTime", { clear = true })
