@@ -16,7 +16,6 @@ return {
       { '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = "Grep Word Under Cursor" },
       { '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>', desc = "Fuzzy Search" },
       { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = "Fuzzy Search Current Buffer" },
-      { '<leader>fa', '<cmd>Telescope telescope-tabs list_tabs<CR>', desc = "Find Tabs" },
       { '<leader>fc', '<cmd>Telescope commands<CR>', desc = "Commands" },
       { '<leader>fk', '<cmd>Telescope keymaps<CR>', desc = "Keymaps" },
       { '<leader>fH', '<cmd>Telescope highlights<CR>', desc = "Highlight Groups" },

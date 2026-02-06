@@ -91,10 +91,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
--- Tab navigation
-vim.keymap.set("n", "<Tab>", "gt", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Tab>", "gT", { noremap = true, silent = true })
-
 -- Open a new tab
 vim.api.nvim_set_keymap('n', '<leader><Tab>', ':tabnew<CR>', { noremap = true, silent = true })
 
