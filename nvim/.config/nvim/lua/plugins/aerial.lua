@@ -15,7 +15,7 @@ return {
       manage_folds = true,
       link_folds_to_tree = true,
       link_tree_to_folds = true,
-      open_folds_automatically = false,
+      open_folds_automatically = true,
     })
 
     vim.keymap.set("n", "<leader>ar", "<cmd>AerialToggle<CR>", { desc = "Toggle Aerial outline" })
@@ -28,4 +28,3 @@ return {
     "nvim-telescope/telescope.nvim",
   }
 }
-

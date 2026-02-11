@@ -21,6 +21,7 @@ return {
     vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true })
     vim.keymap.set('n', '<leader>bp', '<Cmd>BufferCloseAllButPinned<CR>', { silent = true })
     vim.keymap.set('n', '<leader>bn', '<Cmd>BufferPin<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>bq', '<Cmd>BufferClose<CR>', { silent = true })
   end,
 
 }

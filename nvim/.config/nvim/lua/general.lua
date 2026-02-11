@@ -133,3 +133,16 @@ vim.api.nvim_create_autocmd({ "FocusLost", "WinLeave" }, {
   pattern = "*",
   command = "silent! checktime",
 })
+
+-- Make folds open by default
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
+vim.keymap.set("n", "<leader>ve", function()
+  if vim.opt.virtualedit == "all" then
+    vim.opt.virtualedit = ""
+  else
+    vim.opt.virtualedit = "all"
+  end
+end, { desc = "Toggle virtualedit" })
