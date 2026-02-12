@@ -38,7 +38,7 @@ vim.keymap.set('n', '<leader>ud', function()
 end, { desc = 'Toggle diagnostics in current buffer' })
 
 -- Copy current diagnostic
-vim.keymap.set('n', '<leader>dy', function()
+vim.keymap.set('n', '<leader>yd', function()
   local bufnr = vim.api.nvim_get_current_buf()
   local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
   local diags = vim.diagnostic.get(bufnr, { lnum = row - 1 })
