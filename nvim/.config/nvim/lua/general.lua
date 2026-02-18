@@ -65,10 +65,6 @@ vim.opt.number = true -- Enable line numbers
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('t', 'kj', [[<C-\><C-n>]], { noremap = true, silent = true })
 
--- Open Neovim configuration
-vim.api.nvim_set_keymap('n', '<leader>ev', ':edit ~/.config/nvim/init.lua | lcd ~/.config/nvim<CR>',
-  { noremap = true, silent = true })
-
 -- Copy to system clipboard (<leader>y) and paste from clipboard (<leader>p)
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true, silent = true })
@@ -84,12 +80,6 @@ vim.api.nvim_set_keymap('n', '<leader>x', ':q!<CR>', { noremap = true, silent = 
 
 -- Quit the current window
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
-
--- Window navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Open a new tab
 vim.api.nvim_set_keymap('n', '<leader><Tab>', ':tabnew<CR>', { noremap = true, silent = true })

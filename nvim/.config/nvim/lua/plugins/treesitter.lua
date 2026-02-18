@@ -25,7 +25,7 @@ return {
     config = function()
       require("treesitter-context").setup({
         enable = true,
-        -- max_lines = 3,
+        max_lines = 1,
         trim_scope = "outer",
         mode = "cursor",
         separator = "─",
@@ -33,8 +33,8 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "treesitter-context",
         callback = function()
-          vim.opt_local.winheight = 3
-          vim.opt_local.winminheight = 3
+          vim.opt_local.winheight = 1
+          vim.opt_local.winminheight = 1
         end,
       })
     end,
