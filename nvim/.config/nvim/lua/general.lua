@@ -109,6 +109,9 @@ vim.opt.termguicolors = true
 vim.opt.background = "light"
 vim.opt.cursorline = true
 
+-- Disable swap files
+vim.opt.swapfile = false
+
 -- Auto-detect external file changes
 vim.api.nvim_create_augroup("AutoCheckTime", { clear = true })
 

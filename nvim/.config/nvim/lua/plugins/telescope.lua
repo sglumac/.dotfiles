@@ -2,25 +2,25 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-tree/nvim-web-devicons'},
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-tree/nvim-web-devicons' },
     },
     keys = {
-      { '<leader>ff', '<cmd>Telescope find_files<CR>', desc = "Find Files" },
-      { '<leader>fd', '<cmd>Telescope diagnostics<CR>', desc = "Check Diagnostics" },
-      { '<leader>fq', '<cmd>Telescope quickfix<CR>', desc = "Check Quickfix" },
-      { '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = "Live Grep" },
-      { '<leader>fb', '<cmd>Telescope buffers<CR>', desc = "List Buffers" },
-      { '<leader>fh', '<cmd>Telescope help_tags<CR>', desc = "Help Tags" },
-      { '<leader>fr', '<cmd>Telescope lsp_references<CR>', desc = "LSP References" },
-      { '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = "Grep Word Under Cursor" },
+      { '<leader>ff', '<cmd>Telescope find_files<CR>',                                desc = "Find Files" },
+      { '<leader>fd', '<cmd>Telescope diagnostics<CR>',                               desc = "Check Diagnostics" },
+      { '<leader>fq', '<cmd>Telescope quickfix<CR>',                                  desc = "Check Quickfix" },
+      { '<leader>fg', '<cmd>Telescope live_grep<CR>',                                 desc = "Live Grep" },
+      { '<leader>fb', '<cmd>Telescope buffers<CR>',                                   desc = "List Buffers" },
+      { '<leader>fh', '<cmd>Telescope help_tags<CR>',                                 desc = "Help Tags" },
+      { '<leader>fr', '<cmd>Telescope lsp_references<CR>',                            desc = "LSP References" },
+      { '<leader>fw', '<cmd>Telescope grep_string<CR>',                               desc = "Grep Word Under Cursor" },
       { '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>', desc = "Fuzzy Search" },
-      { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = "Fuzzy Search Current Buffer" },
-      { '<leader>fc', '<cmd>Telescope commands<CR>', desc = "Commands" },
-      { '<leader>fk', '<cmd>Telescope keymaps<CR>', desc = "Keymaps" },
-      { '<leader>fH', '<cmd>Telescope highlights<CR>', desc = "Highlight Groups" },
-      { '<leader>fm', '<cmd>Telescope marks<CR>', desc = "Marks" },
-      { '<leader>fj', '<cmd>Telescope jumplist<CR>', desc = "Jumplist" },
+      { '<leader>/',  '<cmd>Telescope current_buffer_fuzzy_find<CR>',                 desc = "Fuzzy Search Current Buffer" },
+      { '<leader>fc', '<cmd>Telescope commands<CR>',                                  desc = "Commands" },
+      { '<leader>fk', '<cmd>Telescope keymaps<CR>',                                   desc = "Keymaps" },
+      { '<leader>fH', '<cmd>Telescope highlights<CR>',                                desc = "Highlight Groups" },
+      { '<leader>fm', '<cmd>Telescope marks<CR>',                                     desc = "Marks" },
+      { '<leader>fj', '<cmd>Telescope jumplist<CR>',                                  desc = "Jumplist" },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -143,5 +143,11 @@ return {
       })
     end,
   },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension("dap")
+    end
+  }
 }
-
