@@ -47,7 +47,10 @@ return {
       dap.configurations.c   = dap.configurations.cpp
 
       vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'DiagnosticError' })
+      vim.fn.sign_define('DapBreakpointCondition', { text = '◆', texthl = 'DiagnosticWarn' })
+      vim.fn.sign_define('DapLogPoint', { text = '◆', texthl = 'DiagnosticInfo' })
       vim.fn.sign_define('DapStopped', { text = '▶', texthl = 'DiagnosticInfo' })
+      vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DiagnosticHint' })
     end,
   },
   {
@@ -89,17 +92,34 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
+      local function set_dap_virtual_text_colors()
+        vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", {
+          -- fg = "#bbbbbb", -- soft gray (barely visible on light themes)
+          fg = "#d70000", -- bright red for visibility (good on light background)
+          bg = "NONE",
+          bold = true,
+        })
+        vim.api.nvim_set_hl(0, "NvimDapVirtualText", {
+          fg = "#bbbbbb", -- soft gray (barely visible on light themes)
+          bg = "NONE",
+          italic = true,
+        })
+      end
+      set_dap_virtual_text_colors()                -- Apply highlights immediately
+      vim.api.nvim_create_autocmd("ColorScheme", { -- Reapply highlights whenever colorscheme changes
+        callback = set_dap_virtual_text_colors,
+      })
       require("nvim-dap-virtual-text").setup({
         enabled = true,
-        virt_text_pos = "right_align",
+        virt_text_pos = "inline",
         all_frames = true,
         highlight_changed_variables = true,
         highlight_new_as_changed = true,
         show_stop_reason = true,
-        commented = true,
         only_first_definition = false,
-        -- all_references = true,
+        all_references = true,
         clear_on_continue = false,
+        commented = false,
       })
     end,
   },

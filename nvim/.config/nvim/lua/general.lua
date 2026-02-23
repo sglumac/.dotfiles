@@ -139,3 +139,6 @@ vim.keymap.set("n", "<leader>ve", function()
     vim.opt.virtualedit = "all"
   end
 end, { desc = "Toggle virtualedit" })
+
+-- Wrap
+vim.o.wrap = true
