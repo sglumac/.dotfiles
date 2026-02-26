@@ -10,7 +10,7 @@ return {
     dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'lua_ls', 'neocmake', 'pyright' },
+        ensure_installed = { 'clangd', 'lua_ls', 'neocmake', 'pyright', 'ruff' },
         automatic_installation = true,
       })
     end,
@@ -71,6 +71,8 @@ return {
           },
         },
       })
+
+      vim.lsp.config("ruff", {})
 
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code Action" })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to Definition" })
