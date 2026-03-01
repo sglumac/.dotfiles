@@ -60,8 +60,6 @@ return {
         end
       })
 
-      -- Keybinding for manual formatting
-      vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, { noremap = true, silent = true })
     end,
   }
 }

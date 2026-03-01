@@ -6,10 +6,6 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  keys = {
-    { "<leader>nt", "<cmd>Neotree reveal current<CR>", desc = "Full-width Neo-tree" },
-    { "<leader>o",  "<cmd>Neotree focus<CR>",  desc = "Focus Neo-tree" },
-  },
   config = function()
     require("neo-tree").setup({
       close_if_last_window = true,

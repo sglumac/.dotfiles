@@ -1,9 +1,6 @@
 return {
   "rmagatti/auto-session",
   lazy = false,
-  keys = {
-    { "<leader>ss", "<cmd>Telescope session-lens<cr>", desc = "Find Session" },
-  },
   opts = {
     auto_save_enabled = true,
     auto_restore_enabled = true,

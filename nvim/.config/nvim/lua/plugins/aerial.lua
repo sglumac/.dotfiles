@@ -17,9 +17,6 @@ return {
       link_tree_to_folds = true,
       open_folds_automatically = true,
     })
-
-    vim.keymap.set("n", "<leader>ar", "<cmd>AerialToggle<CR>", { desc = "Toggle Aerial outline" })
-    vim.keymap.set("n", '<leader>fs', '<cmd>Telescope aerial<CR>', { desc = "Symbol find" })
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
