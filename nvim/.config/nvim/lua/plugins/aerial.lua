@@ -3,7 +3,24 @@ return {
   config = function()
     require("aerial").setup({
       backends = { "lsp", "treesitter", "markdown" },
-      filter_kind = false, -- :help SymbolKind
+      filter_kind = { -- :help SymbolKind
+        "Class",
+        "Function",
+        "Method",
+        "Constructor",
+        "Interface",
+        "Module",
+        "Namespace",
+        "Struct",
+        "Enum",
+        "EnumMember",
+        "Constant",
+        "Field",
+        "Property",
+        "Event",
+        "Operator",
+        "TypeParameter",
+      },
       layout = {
         default_direction = "right",
         max_width = math.floor(vim.o.columns * 0.5),
