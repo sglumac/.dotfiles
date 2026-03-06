@@ -86,10 +86,10 @@ return {
     vim.keymap.set('n', '<leader>dr', start_last_config, { desc = 'Re/Start Last Config' })
 
     -- Buffer keymaps (barbar)
-    vim.keymap.set('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true, desc = 'Next buffer' })
-    vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true, desc = 'Previous buffer' })
-    vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>', { silent = true, desc = 'Close all other buffers' })
-    vim.keymap.set('n', '<leader>bp', '<Cmd>BufferCloseAllButPinned<CR>', { silent = true, desc = 'Close all non-pinned' })
+    vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>',
+      { silent = true, desc = 'Close all other buffers' })
+    vim.keymap.set('n', '<leader>bp', '<Cmd>BufferCloseAllButPinned<CR>',
+      { silent = true, desc = 'Close all non-pinned' })
     vim.keymap.set('n', '<leader>bn', '<Cmd>BufferPin<CR>', { silent = true, desc = 'Pin buffer' })
     vim.keymap.set('n', '<leader>bq', '<Cmd>BufferClose<CR>', { silent = true, desc = 'Close buffer' })
 
@@ -109,8 +109,10 @@ return {
     vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', { desc = "Help Tags" })
     vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>', { desc = "LSP References" })
     vim.keymap.set('n', '<leader>fw', '<cmd>Telescope grep_string<CR>', { desc = "Grep Word Under Cursor" })
-    vim.keymap.set('n', '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>', { desc = "Fuzzy Search" })
-    vim.keymap.set('n', '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<CR>', { desc = "Fuzzy Search Current Buffer" })
+    vim.keymap.set('n', '<leader>fz', '<cmd>Telescope grep_string search="" only_sort_text=true<CR>',
+      { desc = "Fuzzy Search" })
+    vim.keymap.set('n', '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<CR>',
+      { desc = "Fuzzy Search Current Buffer" })
     vim.keymap.set('n', '<leader>fc', '<cmd>Telescope commands<CR>', { desc = "Commands" })
     vim.keymap.set('n', '<leader>fk', '<cmd>Telescope keymaps<CR>', { desc = "Keymaps" })
     vim.keymap.set('n', '<leader>fH', '<cmd>Telescope highlights<CR>', { desc = "Highlight Groups" })
@@ -164,98 +166,96 @@ return {
         miniclue.gen_clues.z(),
         -- Windows
         miniclue.gen_clues.windows(),
-        { mode = 'n', keys = '<C-w>w',     postkeys = '<C-w>',                                    desc = 'move next' },
-        { mode = 'n', keys = '<C-w><',     postkeys = '<C-w>',                                    desc = 'decrease width' },
-        { mode = 'n', keys = '<C-w>-',     postkeys = '<C-w>',                                    desc = 'decrease height' },
-        { mode = 'n', keys = '<C-w>+',     postkeys = '<C-w>',                                    desc = 'increase height' },
-        { mode = 'n', keys = '<C-w>>',     postkeys = '<C-w>',                                    desc = 'increase width' },
+        { mode = 'n', keys = '<C-w>w',        postkeys = '<C-w>',                 desc = 'move next' },
+        { mode = 'n', keys = '<C-w><',        postkeys = '<C-w>',                 desc = 'decrease width' },
+        { mode = 'n', keys = '<C-w>-',        postkeys = '<C-w>',                 desc = 'decrease height' },
+        { mode = 'n', keys = '<C-w>+',        postkeys = '<C-w>',                 desc = 'increase height' },
+        { mode = 'n', keys = '<C-w>>',        postkeys = '<C-w>',                 desc = 'increase width' },
 
         -- Leader keys (general)
-        { mode = 'n', keys = '<leader>y', postkeys = '<leader>', desc = 'copy to clipboard' },
-        { mode = 'n', keys = '<leader>p', postkeys = '<leader>', desc = 'paste from clipboard' },
-        { mode = 'n', keys = '<leader>w', postkeys = '<leader>', desc = 'save buffer' },
-        { mode = 'n', keys = '<leader>wq', postkeys = '<leader>w', desc = 'save and close' },
-        { mode = 'n', keys = '<leader>x', postkeys = '<leader>', desc = 'quit without saving' },
-        { mode = 'n', keys = '<leader>q', postkeys = '<leader>', desc = 'quit window' },
-        { mode = 'n', keys = '<leader>qa', postkeys = '<leader>q', desc = 'quit all windows' },
-        { mode = 'n', keys = '<leader><Tab>', postkeys = '<leader>', desc = 'open new tab' },
-        { mode = 'n', keys = '<leader>nl', postkeys = '<leader>n', desc = 'clear search highlight' },
-        { mode = 'n', keys = '<leader>ud', postkeys = '<leader>u', desc = 'toggle diagnostics' },
-        { mode = 'n', keys = '<leader>yd', postkeys = '<leader>y', desc = 'copy diagnostic' },
-        { mode = 'n', keys = '<leader>my', postkeys = '<leader>m', desc = 'copy last message' },
-        { mode = 'n', keys = '<leader>py', postkeys = '<leader>p', desc = 'copy file path' },
-        { mode = 'n', keys = '<leader>ve', postkeys = '<leader>v', desc = 'toggle virtualedit' },
+        { mode = 'n', keys = '<leader>y',     desc = 'copy to clipboard' },
+        { mode = 'n', keys = '<leader>p',     desc = 'paste from clipboard' },
+        { mode = 'n', keys = '<leader>w',     desc = 'save buffer' },
+        { mode = 'n', keys = '<leader>wq',    desc = 'save and close' },
+        { mode = 'n', keys = '<leader>x',     desc = 'quit without saving' },
+        { mode = 'n', keys = '<leader>q',     desc = 'quit window' },
+        { mode = 'n', keys = '<leader>qa',    desc = 'quit all windows' },
+        { mode = 'n', keys = '<leader><Tab>', desc = 'open new tab' },
+        { mode = 'n', keys = '<leader>nl',    desc = 'clear search highlight' },
+        { mode = 'n', keys = '<leader>ud',    desc = 'toggle diagnostics' },
+        { mode = 'n', keys = '<leader>yd',    desc = 'copy diagnostic' },
+        { mode = 'n', keys = '<leader>my',    desc = 'copy last message' },
+        { mode = 'n', keys = '<leader>py',    desc = 'copy file path' },
+        { mode = 'n', keys = '<leader>ve',    desc = 'toggle virtualedit' },
 
         -- Leader + b (buffers)
-        { mode = 'n', keys = '<leader>bo', postkeys = '<leader>b', desc = 'close all other buffers' },
-        { mode = 'n', keys = '<leader>bp', postkeys = '<leader>b', desc = 'close non-pinned' },
-        { mode = 'n', keys = '<leader>bn', postkeys = '<leader>b', desc = 'pin buffer' },
-        { mode = 'n', keys = '<leader>bq', postkeys = '<leader>b', desc = 'close buffer' },
+        { mode = 'n', keys = '<leader>bo',    desc = 'close all other buffers' },
+        { mode = 'n', keys = '<leader>bp',    desc = 'close non-pinned' },
+        { mode = 'n', keys = '<leader>bn',    desc = 'pin buffer' },
+        { mode = 'n', keys = '<leader>bq',    desc = 'close buffer' },
 
         -- Leader + c (code)
-        { mode = 'n', keys = '<leader>ca', postkeys = '<leader>c', desc = 'code action' },
+        { mode = 'n', keys = '<leader>ca',    desc = 'code action' },
 
         -- Leader + d (debug)
-        { mode = 'n', keys = '<leader>do', postkeys = '<leader>d', desc = 'step out' },
-        { mode = 'n', keys = '<leader>dn', postkeys = '<leader>d', desc = 'step over' },
-        { mode = 'n', keys = '<leader>ds', postkeys = '<leader>d', desc = 'step into' },
-        { mode = 'n', keys = '<leader>dc', postkeys = '<leader>d', desc = 'continue' },
-        { mode = 'n', keys = '<leader>du', postkeys = '<leader>d', desc = 'stack up' },
-        { mode = 'n', keys = '<leader>dd', postkeys = '<leader>d', desc = 'stack down' },
-        { mode = 'n', keys = '<leader>dr', postkeys = '<leader>d', desc = 're/start last config' },
-        { mode = 'n', keys = '<leader>db', desc = 'toggle breakpoint' },
-        { mode = 'n', keys = '<leader>dt', desc = 'clear breakpoints' },
-        { mode = 'n', keys = '<leader>dq', desc = 'terminate' },
-        { mode = 'n', keys = '<leader>df', desc = 'debug configurations' },
+        { mode = 'n', keys = '<leader>do',    postkeys = '<leader>d',             desc = 'step out' },
+        { mode = 'n', keys = '<leader>dn',    postkeys = '<leader>d',             desc = 'step over' },
+        { mode = 'n', keys = '<leader>ds',    postkeys = '<leader>d',             desc = 'step into' },
+        { mode = 'n', keys = '<leader>dc',    postkeys = '<leader>d',             desc = 'continue' },
+        { mode = 'n', keys = '<leader>du',    postkeys = '<leader>d',             desc = 'stack up' },
+        { mode = 'n', keys = '<leader>dd',    postkeys = '<leader>d',             desc = 'stack down' },
+        { mode = 'n', keys = '<leader>dr',    postkeys = '<leader>d',             desc = 're/start last config' },
+        { mode = 'n', keys = '<leader>db',    desc = 'toggle breakpoint' },
+        { mode = 'n', keys = '<leader>dt',    desc = 'clear breakpoints' },
+        { mode = 'n', keys = '<leader>dq',    desc = 'terminate' },
+        { mode = 'n', keys = '<leader>df',    desc = 'debug configurations' },
 
         -- Leader + f (find/format/file tree)
-        { mode = 'n', keys = '<leader>ff', postkeys = '<leader>f', desc = 'find files' },
-        { mode = 'n', keys = '<leader>fd', postkeys = '<leader>f', desc = 'check diagnostics' },
-        { mode = 'n', keys = '<leader>fq', postkeys = '<leader>f', desc = 'check quickfix' },
-        { mode = 'n', keys = '<leader>fg', postkeys = '<leader>f', desc = 'live grep' },
-        { mode = 'n', keys = '<leader>fb', postkeys = '<leader>f', desc = 'list buffers' },
-        { mode = 'n', keys = '<leader>fh', postkeys = '<leader>f', desc = 'help tags' },
-        { mode = 'n', keys = '<leader>fr', postkeys = '<leader>f', desc = 'lsp references' },
-        { mode = 'n', keys = '<leader>fw', postkeys = '<leader>f', desc = 'grep word' },
-        { mode = 'n', keys = '<leader>fz', postkeys = '<leader>f', desc = 'fuzzy search' },
-        { mode = 'n', keys = '<leader>/', postkeys = '<leader>f', desc = 'fuzzy search buffer' },
-        { mode = 'n', keys = '<leader>fc', postkeys = '<leader>f', desc = 'commands' },
-        { mode = 'n', keys = '<leader>fk', postkeys = '<leader>f', desc = 'keymaps' },
-        { mode = 'n', keys = '<leader>fH', postkeys = '<leader>f', desc = 'highlight groups' },
-        { mode = 'n', keys = '<leader>fm', postkeys = '<leader>f', desc = 'marks' },
-        { mode = 'n', keys = '<leader>fj', postkeys = '<leader>f', desc = 'jumplist' },
-        { mode = 'n', keys = '<leader>fs', postkeys = '<leader>f', desc = 'symbol find' },
-        { mode = 'n', keys = '<leader>ft', postkeys = '<leader>f', desc = 'format buffer' },
+        { mode = 'n', keys = '<leader>ff',    desc = 'find files' },
+        { mode = 'n', keys = '<leader>fd',    desc = 'check diagnostics' },
+        { mode = 'n', keys = '<leader>fq',    desc = 'check quickfix' },
+        { mode = 'n', keys = '<leader>fg',    desc = 'live grep' },
+        { mode = 'n', keys = '<leader>fb',    desc = 'list buffers' },
+        { mode = 'n', keys = '<leader>fh',    desc = 'help tags' },
+        { mode = 'n', keys = '<leader>fr',    desc = 'lsp references' },
+        { mode = 'n', keys = '<leader>fw',    desc = 'grep word' },
+        { mode = 'n', keys = '<leader>fz',    desc = 'fuzzy search' },
+        { mode = 'n', keys = '<leader>/',     desc = 'fuzzy search buffer' },
+        { mode = 'n', keys = '<leader>fc',    desc = 'commands' },
+        { mode = 'n', keys = '<leader>fk',    desc = 'keymaps' },
+        { mode = 'n', keys = '<leader>fH',    desc = 'highlight groups' },
+        { mode = 'n', keys = '<leader>fm',    desc = 'marks' },
+        { mode = 'n', keys = '<leader>fj',    desc = 'jumplist' },
+        { mode = 'n', keys = '<leader>fs',    desc = 'symbol find' },
+        { mode = 'n', keys = '<leader>ft',    desc = 'format buffer' },
 
         -- Leader + n (neo-tree)
-        { mode = 'n', keys = '<leader>nt', postkeys = '<leader>n', desc = 'full-width neo-tree' },
+        { mode = 'n', keys = '<leader>nt',             desc = 'full-width neo-tree' },
 
         -- Leader + o (files/open)
-        { mode = 'n', keys = '<leader>o', postkeys = '<leader>o', desc = 'focus neo-tree' },
+        { mode = 'n', keys = '<leader>o',             desc = 'focus neo-tree' },
 
         -- Leader + s (sessions)
-        { mode = 'n', keys = '<leader>ss', postkeys = '<leader>s', desc = 'find session' },
+        { mode = 'n', keys = '<leader>ss',             desc = 'find session' },
 
         -- Leader + x (trouble/diagnostics)
-        { mode = 'n', keys = '<leader>xx', postkeys = '<leader>x', desc = 'diagnostics (trouble)' },
-        { mode = 'n', keys = '<leader>xq', postkeys = '<leader>x', desc = 'quickfix (trouble)' },
-        { mode = 'n', keys = '<leader>xl', postkeys = '<leader>x', desc = 'location list (trouble)' },
+        { mode = 'n', keys = '<leader>xx',             desc = 'diagnostics (trouble)' },
+        { mode = 'n', keys = '<leader>xq',             desc = 'quickfix (trouble)' },
+        { mode = 'n', keys = '<leader>xl',             desc = 'location list (trouble)' },
 
         -- Leader + a (aerial)
-        { mode = 'n', keys = '<leader>ar', postkeys = '<leader>a', desc = 'toggle aerial outline' },
+        { mode = 'n', keys = '<leader>ar',             desc = 'toggle aerial outline' },
 
         -- Leader + r (refactor/rename)
-        { mode = 'n', keys = '<leader>rn', postkeys = '<leader>r', desc = 'rename symbol' },
+        { mode = 'n', keys = '<leader>rn',             desc = 'rename symbol' },
 
         -- Single key bindings (no leader)
-        { mode = 'n', keys = '[', desc = 'previous (diagnostic/item)' },
-        { mode = 'n', keys = ']', desc = 'next (diagnostic/item)' },
-        { mode = 'n', keys = 'gd', desc = 'go to definition' },
-        { mode = 'n', keys = 'gr', desc = 'show references' },
-        { mode = 'n', keys = 'K', desc = 'hover' },
-        { mode = 'n', keys = '<Tab>', desc = 'next buffer' },
-        { mode = 'n', keys = '<S-Tab>', desc = 'previous buffer' },
-        { mode = 'n', keys = '<F4>', desc = 'toggle floating terminal' },
+        { mode = 'n', keys = '[',             desc = 'previous (diagnostic/item)' },
+        { mode = 'n', keys = ']',             desc = 'next (diagnostic/item)' },
+        { mode = 'n', keys = 'gd',            desc = 'go to definition' },
+        { mode = 'n', keys = 'gr',            desc = 'show references' },
+        { mode = 'n', keys = 'K',             desc = 'hover' },
+        { mode = 'n', keys = '<F4>',          desc = 'toggle floating terminal' },
       },
     })
   end,
