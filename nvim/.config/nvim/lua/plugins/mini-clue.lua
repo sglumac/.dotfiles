@@ -87,10 +87,10 @@ return {
 
     -- Buffer keymaps (barbar)
     for i = 1, 9 do
-      vim.keymap.set('n', '<A-' .. i .. '>', '<Cmd>BufferGoto ' .. i .. '<CR>',
+      vim.keymap.set('n', '<leader>b' .. i, '<Cmd>BufferGoto ' .. i .. '<CR>',
         { silent = true, desc = 'Go to buffer ' .. i })
     end
-    vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', { silent = true, desc = 'Go to last buffer' })
+    vim.keymap.set('n', '<leader>b0', '<Cmd>BufferLast<CR>', { silent = true, desc = 'Go to last buffer' })
 
     vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { silent = true, desc = 'Next buffer' })
     vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { silent = true, desc = 'Previous buffer' })
@@ -197,17 +197,17 @@ return {
         { mode = 'n', keys = '<leader>py',    desc = 'copy file path' },
         { mode = 'n', keys = '<leader>ve',    desc = 'toggle virtualedit' },
 
-        -- Alt + number (buffer jump)
-        { mode = 'n', keys = '<A-1>',         desc = 'go to buffer 1' },
-        { mode = 'n', keys = '<A-2>',         desc = 'go to buffer 2' },
-        { mode = 'n', keys = '<A-3>',         desc = 'go to buffer 3' },
-        { mode = 'n', keys = '<A-4>',         desc = 'go to buffer 4' },
-        { mode = 'n', keys = '<A-5>',         desc = 'go to buffer 5' },
-        { mode = 'n', keys = '<A-6>',         desc = 'go to buffer 6' },
-        { mode = 'n', keys = '<A-7>',         desc = 'go to buffer 7' },
-        { mode = 'n', keys = '<A-8>',         desc = 'go to buffer 8' },
-        { mode = 'n', keys = '<A-9>',         desc = 'go to buffer 9' },
-        { mode = 'n', keys = '<A-0>',         desc = 'go to last buffer' },
+        -- Leader + b + number (buffer jump)
+        { mode = 'n', keys = '<leader>b1',    postkeys = '<leader>b', desc = 'go to buffer 1' },
+        { mode = 'n', keys = '<leader>b2',    postkeys = '<leader>b', desc = 'go to buffer 2' },
+        { mode = 'n', keys = '<leader>b3',    postkeys = '<leader>b', desc = 'go to buffer 3' },
+        { mode = 'n', keys = '<leader>b4',    postkeys = '<leader>b', desc = 'go to buffer 4' },
+        { mode = 'n', keys = '<leader>b5',    postkeys = '<leader>b', desc = 'go to buffer 5' },
+        { mode = 'n', keys = '<leader>b6',    postkeys = '<leader>b', desc = 'go to buffer 6' },
+        { mode = 'n', keys = '<leader>b7',    postkeys = '<leader>b', desc = 'go to buffer 7' },
+        { mode = 'n', keys = '<leader>b8',    postkeys = '<leader>b', desc = 'go to buffer 8' },
+        { mode = 'n', keys = '<leader>b9',    postkeys = '<leader>b', desc = 'go to buffer 9' },
+        { mode = 'n', keys = '<leader>b0',    postkeys = '<leader>b', desc = 'go to last buffer' },
 
         -- Leader + b (buffers)
         { mode = 'n', keys = '<leader>b]',    postkeys = '<leader>b', desc = 'next buffer' },
