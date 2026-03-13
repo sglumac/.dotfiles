@@ -86,6 +86,15 @@ return {
     vim.keymap.set('n', '<leader>dr', start_last_config, { desc = 'Re/Start Last Config' })
 
     -- Buffer keymaps (barbar)
+    for i = 1, 9 do
+      vim.keymap.set('n', '<A-' .. i .. '>', '<Cmd>BufferGoto ' .. i .. '<CR>',
+        { silent = true, desc = 'Go to buffer ' .. i })
+    end
+    vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', { silent = true, desc = 'Go to last buffer' })
+
+    vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { silent = true, desc = 'Next buffer' })
+    vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { silent = true, desc = 'Previous buffer' })
+
     vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>',
       { silent = true, desc = 'Close all other buffers' })
     vim.keymap.set('n', '<leader>bp', '<Cmd>BufferCloseAllButPinned<CR>',
@@ -188,7 +197,21 @@ return {
         { mode = 'n', keys = '<leader>py',    desc = 'copy file path' },
         { mode = 'n', keys = '<leader>ve',    desc = 'toggle virtualedit' },
 
+        -- Alt + number (buffer jump)
+        { mode = 'n', keys = '<A-1>',         desc = 'go to buffer 1' },
+        { mode = 'n', keys = '<A-2>',         desc = 'go to buffer 2' },
+        { mode = 'n', keys = '<A-3>',         desc = 'go to buffer 3' },
+        { mode = 'n', keys = '<A-4>',         desc = 'go to buffer 4' },
+        { mode = 'n', keys = '<A-5>',         desc = 'go to buffer 5' },
+        { mode = 'n', keys = '<A-6>',         desc = 'go to buffer 6' },
+        { mode = 'n', keys = '<A-7>',         desc = 'go to buffer 7' },
+        { mode = 'n', keys = '<A-8>',         desc = 'go to buffer 8' },
+        { mode = 'n', keys = '<A-9>',         desc = 'go to buffer 9' },
+        { mode = 'n', keys = '<A-0>',         desc = 'go to last buffer' },
+
         -- Leader + b (buffers)
+        { mode = 'n', keys = '<leader>b]',    postkeys = '<leader>b', desc = 'next buffer' },
+        { mode = 'n', keys = '<leader>b[',    postkeys = '<leader>b', desc = 'previous buffer' },
         { mode = 'n', keys = '<leader>bo',    desc = 'close all other buffers' },
         { mode = 'n', keys = '<leader>bp',    desc = 'close non-pinned' },
         { mode = 'n', keys = '<leader>bn',    desc = 'pin buffer' },

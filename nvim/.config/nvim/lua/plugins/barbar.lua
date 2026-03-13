@@ -12,6 +12,9 @@ return {
     auto_hide = false,
     tabpages = true,
     clickable = true,
+    icons = {
+      buffer_index = true,
+    },
   },
   config = function(_, opts)
     require('barbar').setup(opts)
