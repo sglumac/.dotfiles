@@ -85,7 +85,7 @@ return {
     vim.keymap.set("n", "<leader>df", "<cmd>Telescope dap configurations<CR>", { desc = "Debug Configurations" })
     vim.keymap.set('n', '<leader>dr', start_last_config, { desc = 'Re/Start Last Config' })
 
-    -- Buffer keymaps (barbar)
+    -- Buffer keymaps
     for i = 1, 9 do
       vim.keymap.set('n', '<leader>b' .. i, '<Cmd>BufferGoto ' .. i .. '<CR>',
         { silent = true, desc = 'Go to buffer ' .. i })
@@ -94,6 +94,8 @@ return {
 
     vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { silent = true, desc = 'Next buffer' })
     vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { silent = true, desc = 'Previous buffer' })
+
+    vim.keymap.set('n', '<leader>bf', '<cmd>Telescope buffers<CR>', { desc = "List Buffers" })
 
     vim.keymap.set('n', '<leader>bo', '<Cmd>BufferCloseAllButCurrent<CR>',
       { silent = true, desc = 'Close all other buffers' })
@@ -114,7 +116,6 @@ return {
     vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>', { desc = "Check Diagnostics" })
     vim.keymap.set('n', '<leader>fq', '<cmd>Telescope quickfix<CR>', { desc = "Check Quickfix" })
     vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', { desc = "Live Grep" })
-    vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { desc = "List Buffers" })
     vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', { desc = "Help Tags" })
     vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>', { desc = "LSP References" })
     vim.keymap.set('n', '<leader>fw', '<cmd>Telescope grep_string<CR>', { desc = "Grep Word Under Cursor" })
@@ -216,6 +217,7 @@ return {
         { mode = 'n', keys = '<leader>bp',    desc = 'close non-pinned' },
         { mode = 'n', keys = '<leader>bn',    desc = 'pin buffer' },
         { mode = 'n', keys = '<leader>bq',    desc = 'close buffer' },
+        { mode = 'n', keys = '<leader>bf',    desc = 'list buffers' },
 
         -- Leader + c (code)
         { mode = 'n', keys = '<leader>ca',    desc = 'code action' },
@@ -238,7 +240,6 @@ return {
         { mode = 'n', keys = '<leader>fd',    desc = 'check diagnostics' },
         { mode = 'n', keys = '<leader>fq',    desc = 'check quickfix' },
         { mode = 'n', keys = '<leader>fg',    desc = 'live grep' },
-        { mode = 'n', keys = '<leader>fb',    desc = 'list buffers' },
         { mode = 'n', keys = '<leader>fh',    desc = 'help tags' },
         { mode = 'n', keys = '<leader>fr',    desc = 'lsp references' },
         { mode = 'n', keys = '<leader>fw',    desc = 'grep word' },
