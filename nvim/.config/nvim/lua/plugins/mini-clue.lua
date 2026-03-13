@@ -59,24 +59,24 @@ return {
         { mode = 'n', keys = '<leader>ve',    desc = 'toggle virtualedit' },
 
         -- Leader + b + number (buffer jump)
-        { mode = 'n', keys = '<leader>b1',    postkeys = '<leader>b', desc = 'go to buffer 1' },
-        { mode = 'n', keys = '<leader>b2',    postkeys = '<leader>b', desc = 'go to buffer 2' },
-        { mode = 'n', keys = '<leader>b3',    postkeys = '<leader>b', desc = 'go to buffer 3' },
-        { mode = 'n', keys = '<leader>b4',    postkeys = '<leader>b', desc = 'go to buffer 4' },
-        { mode = 'n', keys = '<leader>b5',    postkeys = '<leader>b', desc = 'go to buffer 5' },
-        { mode = 'n', keys = '<leader>b6',    postkeys = '<leader>b', desc = 'go to buffer 6' },
-        { mode = 'n', keys = '<leader>b7',    postkeys = '<leader>b', desc = 'go to buffer 7' },
-        { mode = 'n', keys = '<leader>b8',    postkeys = '<leader>b', desc = 'go to buffer 8' },
-        { mode = 'n', keys = '<leader>b9',    postkeys = '<leader>b', desc = 'go to buffer 9' },
-        { mode = 'n', keys = '<leader>b0',    postkeys = '<leader>b', desc = 'go to last buffer' },
+        { mode = 'n', keys = '<leader>b1',    postkeys = '<leader>b',             desc = 'go to buffer 1' },
+        { mode = 'n', keys = '<leader>b2',    postkeys = '<leader>b',             desc = 'go to buffer 2' },
+        { mode = 'n', keys = '<leader>b3',    postkeys = '<leader>b',             desc = 'go to buffer 3' },
+        { mode = 'n', keys = '<leader>b4',    postkeys = '<leader>b',             desc = 'go to buffer 4' },
+        { mode = 'n', keys = '<leader>b5',    postkeys = '<leader>b',             desc = 'go to buffer 5' },
+        { mode = 'n', keys = '<leader>b6',    postkeys = '<leader>b',             desc = 'go to buffer 6' },
+        { mode = 'n', keys = '<leader>b7',    postkeys = '<leader>b',             desc = 'go to buffer 7' },
+        { mode = 'n', keys = '<leader>b8',    postkeys = '<leader>b',             desc = 'go to buffer 8' },
+        { mode = 'n', keys = '<leader>b9',    postkeys = '<leader>b',             desc = 'go to buffer 9' },
+        { mode = 'n', keys = '<leader>b0',    postkeys = '<leader>b',             desc = 'go to last buffer' },
 
         -- Leader + b (buffers)
-        { mode = 'n', keys = '<leader>b]',    postkeys = '<leader>b', desc = 'next buffer' },
-        { mode = 'n', keys = '<leader>b[',    postkeys = '<leader>b', desc = 'previous buffer' },
+        { mode = 'n', keys = '<leader>b]',    postkeys = '<leader>b',             desc = 'next buffer' },
+        { mode = 'n', keys = '<leader>b[',    postkeys = '<leader>b',             desc = 'previous buffer' },
+        { mode = 'n', keys = '<leader>bq',    postkeys = '<leader>b',             desc = 'close buffer' },
         { mode = 'n', keys = '<leader>bo',    desc = 'close all other buffers' },
         { mode = 'n', keys = '<leader>bp',    desc = 'close non-pinned' },
         { mode = 'n', keys = '<leader>bn',    desc = 'pin buffer' },
-        { mode = 'n', keys = '<leader>bq',    desc = 'close buffer' },
         { mode = 'n', keys = '<leader>bf',    desc = 'list buffers' },
 
         -- Leader + c (code)
@@ -114,24 +114,24 @@ return {
         { mode = 'n', keys = '<leader>ft',    desc = 'format buffer' },
 
         -- Leader + n (neo-tree)
-        { mode = 'n', keys = '<leader>nt',             desc = 'full-width neo-tree' },
+        { mode = 'n', keys = '<leader>nt',    desc = 'full-width neo-tree' },
 
         -- Leader + o (files/open)
-        { mode = 'n', keys = '<leader>o',             desc = 'focus neo-tree' },
+        { mode = 'n', keys = '<leader>o',     desc = 'focus neo-tree' },
 
         -- Leader + s (sessions)
-        { mode = 'n', keys = '<leader>ss',             desc = 'find session' },
+        { mode = 'n', keys = '<leader>ss',    desc = 'find session' },
 
         -- Leader + x (trouble/diagnostics)
-        { mode = 'n', keys = '<leader>xx',             desc = 'diagnostics (trouble)' },
-        { mode = 'n', keys = '<leader>xq',             desc = 'quickfix (trouble)' },
-        { mode = 'n', keys = '<leader>xl',             desc = 'location list (trouble)' },
+        { mode = 'n', keys = '<leader>xx',    desc = 'diagnostics (trouble)' },
+        { mode = 'n', keys = '<leader>xq',    desc = 'quickfix (trouble)' },
+        { mode = 'n', keys = '<leader>xl',    desc = 'location list (trouble)' },
 
         -- Leader + a (aerial)
-        { mode = 'n', keys = '<leader>ar',             desc = 'toggle aerial outline' },
+        { mode = 'n', keys = '<leader>ar',    desc = 'toggle aerial outline' },
 
         -- Leader + r (refactor/rename)
-        { mode = 'n', keys = '<leader>rn',             desc = 'rename symbol' },
+        { mode = 'n', keys = '<leader>rn',    desc = 'rename symbol' },
 
         -- Single key bindings (no leader)
         { mode = 'n', keys = '[',             desc = 'previous (diagnostic/item)' },

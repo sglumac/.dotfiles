@@ -33,7 +33,9 @@ return {
         },
       },
       buffers = {
-        follow_current_file = true,
+        follow_current_file = {
+          true,
+        },
       },
       git_status = {
         window = {
