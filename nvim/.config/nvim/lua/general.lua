@@ -59,3 +59,6 @@ vim.opt.foldenable = true
 -- Wrap
 vim.o.wrap = true
 
+-- Keymaps
+require('keymaps')
+
