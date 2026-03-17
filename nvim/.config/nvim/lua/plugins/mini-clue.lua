@@ -123,9 +123,10 @@ return {
         { mode = 'n', keys = '<leader>ss',    desc = 'find session' },
 
         -- Leader + x (trouble/diagnostics)
-        { mode = 'n', keys = '<leader>xx',    desc = 'diagnostics (trouble)' },
-        { mode = 'n', keys = '<leader>xq',    desc = 'quickfix (trouble)' },
-        { mode = 'n', keys = '<leader>xl',    desc = 'location list (trouble)' },
+        { mode = 'n', keys = '<leader>xd',    desc = 'diagnostics (trouble)' },
+        { mode = 'n', keys = '<leader>xf',    desc = 'quickfix (trouble)' },
+        { mode = 'n', keys = '<leader>x]',    postkeys = '<leader>x',             desc = 'next trouble' },
+        { mode = 'n', keys = '<leader>x[',    postkeys = '<leader>x',             desc = 'previous trouble' },
 
         -- Leader + a (aerial)
         { mode = 'n', keys = '<leader>ar',    desc = 'toggle aerial outline' },

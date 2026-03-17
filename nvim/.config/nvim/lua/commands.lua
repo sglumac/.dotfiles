@@ -68,3 +68,27 @@ end, { desc = 'DAP stack down' })
 vim.api.nvim_create_user_command('DapClearBreakpoints', function()
   require('dap').clear_breakpoints()
 end, { desc = 'Clear all DAP breakpoints' })
+
+vim.api.nvim_create_user_command('QFLoadLog', function(opts)
+  local file = (opts.args ~= '' and opts.args) or '/tmp/build.log'
+  if vim.fn.filereadable(file) == 0 then
+    vim.notify('No such file: ' .. file, vim.log.levels.ERROR)
+    return
+  end
+  -- Use cgetfile so Neovim parses with the current 'errorformat'
+  vim.cmd('silent keepalt cgetfile ' .. vim.fn.fnameescape(file))
+  -- Open the quickfix list in Trouble.nvim instead of the default quickfix window
+  vim.cmd('Trouble quickfix')
+end, { nargs = '?', complete = 'file' })
+
+-- Optional mapping
+vim.keymap.set('n', '<leader>ml', '<cmd>QFLoadLog /tmp/build.log<CR>', { desc = 'Load build.log into quickfix' })
+
+-- Trouble navigation commands
+vim.api.nvim_create_user_command('TroubleNext', function()
+    require('trouble').next({ skip_groups = true, jump = true })
+end, { desc = 'Next Trouble / quickfix item' })
+
+vim.api.nvim_create_user_command('TroublePrev', function()
+    require('trouble').prev({ skip_groups = true, jump = true })
+end, { desc = 'Previous Trouble / quickfix item' })

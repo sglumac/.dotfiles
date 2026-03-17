@@ -92,26 +92,9 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
-      local function set_dap_virtual_text_colors()
-        vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", {
-          -- fg = "#bbbbbb", -- soft gray (barely visible on light themes)
-          fg = "#d70000", -- bright red for visibility (good on light background)
-          bg = "NONE",
-          bold = true,
-        })
-        vim.api.nvim_set_hl(0, "NvimDapVirtualText", {
-          fg = "#bbbbbb", -- soft gray (barely visible on light themes)
-          bg = "NONE",
-          italic = true,
-        })
-      end
-      set_dap_virtual_text_colors()                -- Apply highlights immediately
-      vim.api.nvim_create_autocmd("ColorScheme", { -- Reapply highlights whenever colorscheme changes
-        callback = set_dap_virtual_text_colors,
-      })
       require("nvim-dap-virtual-text").setup({
         enabled = true,
-        virt_text_pos = "inline",
+        virt_text_pos = "eol",
         all_frames = true,
         highlight_changed_variables = true,
         highlight_new_as_changed = true,

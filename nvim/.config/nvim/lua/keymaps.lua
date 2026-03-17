@@ -10,8 +10,8 @@ vim.keymap.set('t', 'kj', [[<C-\><C-n>]], { noremap = true, silent = true, desc 
 vim.keymap.set('v', '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Copy to clipboard' })
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save buffer' })
-vim.keymap.set('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and close buffer' })
-vim.keymap.set('n', '<leader>x', '<cmd>q!<CR>', { desc = 'Quit without saving' })
+vim.keymap.set('n', '<leader>qw', '<cmd>wq<CR>', { desc = 'Save and close buffer' })
+vim.keymap.set('n', '<leader>qx', '<cmd>q!<CR>', { desc = 'Quit without saving' })
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit current window' })
 vim.keymap.set('n', '<leader><Tab>', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
 vim.keymap.set('n', '<leader>qa', '<cmd>qa<CR>', { desc = 'Quit all windows' })
@@ -93,6 +93,7 @@ vim.keymap.set('n', '<F4>', '<cmd>ToggleTerm<CR>', { desc = 'Toggle floating ter
 vim.keymap.set('n', '<leader>ss', '<cmd>Telescope session-lens<CR>', { desc = 'Find Session' })
 
 -- Trouble keymaps
-vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<CR>', { desc = 'Diagnostics (Trouble)' })
-vim.keymap.set('n', '<leader>xq', '<cmd>Trouble qflist toggle<CR>', { desc = 'Quickfix (Trouble)' })
-vim.keymap.set('n', '<leader>xl', '<cmd>Trouble loclist toggle<CR>', { desc = 'Location List (Trouble)' })
+vim.keymap.set('n', '<leader>xd', '<cmd>Trouble diagnostics toggle<CR>', { desc = 'Diagnostics (Trouble)' })
+vim.keymap.set('n', '<leader>xf', '<cmd>Trouble qflist toggle<CR>', { desc = 'Quickfix (Trouble)' })
+vim.keymap.set('n', '<leader>x]', '<cmd>TroubleNext<CR>', { desc = 'Next Trouble / quickfix item' })
+vim.keymap.set('n', '<leader>x[', '<cmd>TroublePrev<CR>', { desc = 'Previous Trouble / quickfix item' })
