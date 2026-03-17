@@ -45,30 +45,6 @@ vim.api.nvim_create_user_command('ToggleVirtualEdit', function()
   end
 end, { desc = 'Toggle virtualedit' })
 
--- DAP commands (supplements built-in DapContinue, DapStepOver, etc.)
-vim.api.nvim_create_user_command('DapRunLast', function()
-  local dap = require('dap')
-  local ft = vim.bo.filetype
-  local configs = dap.configurations[ft]
-  if not configs or #configs == 0 then
-    return vim.notify("No DAP configurations for filetype: " .. ft, vim.log.levels.WARN)
-  end
-  local last = configs[#configs]
-  dap.run(last)
-end, { desc = 'Re/start last DAP config' })
-
-vim.api.nvim_create_user_command('DapStackUp', function()
-  require('dap').up()
-end, { desc = 'DAP stack up' })
-
-vim.api.nvim_create_user_command('DapStackDown', function()
-  require('dap').down()
-end, { desc = 'DAP stack down' })
-
-vim.api.nvim_create_user_command('DapClearBreakpoints', function()
-  require('dap').clear_breakpoints()
-end, { desc = 'Clear all DAP breakpoints' })
-
 vim.api.nvim_create_user_command('QFLoadLog', function(opts)
   local file = (opts.args ~= '' and opts.args) or '/tmp/build.log'
   if vim.fn.filereadable(file) == 0 then

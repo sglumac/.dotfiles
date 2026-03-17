@@ -11,8 +11,6 @@ return {
         { mode = 'x', keys = '<leader>' },
         -- Windows
         { mode = 'n', keys = '<C-w>' },
-        -- Debug
-        { mode = 'n', keys = '<leader>d' },
         -- Built-in completion
         { mode = 'i', keys = '<C-x>' },
         -- Built-in commands (g, z, etc.)
@@ -81,19 +79,6 @@ return {
 
         -- Leader + c (code)
         { mode = 'n', keys = '<leader>ca',    desc = 'code action' },
-
-        -- Leader + d (debug)
-        { mode = 'n', keys = '<leader>do',    postkeys = '<leader>d',             desc = 'step out' },
-        { mode = 'n', keys = '<leader>dn',    postkeys = '<leader>d',             desc = 'step over' },
-        { mode = 'n', keys = '<leader>ds',    postkeys = '<leader>d',             desc = 'step into' },
-        { mode = 'n', keys = '<leader>dc',    postkeys = '<leader>d',             desc = 'continue' },
-        { mode = 'n', keys = '<leader>du',    postkeys = '<leader>d',             desc = 'stack up' },
-        { mode = 'n', keys = '<leader>dd',    postkeys = '<leader>d',             desc = 'stack down' },
-        { mode = 'n', keys = '<leader>dr',    postkeys = '<leader>d',             desc = 're/start last config' },
-        { mode = 'n', keys = '<leader>db',    desc = 'toggle breakpoint' },
-        { mode = 'n', keys = '<leader>dt',    desc = 'clear breakpoints' },
-        { mode = 'n', keys = '<leader>dq',    desc = 'terminate' },
-        { mode = 'n', keys = '<leader>df',    desc = 'debug configurations' },
 
         -- Leader + f (find/format/file tree)
         { mode = 'n', keys = '<leader>ff',    desc = 'find files' },

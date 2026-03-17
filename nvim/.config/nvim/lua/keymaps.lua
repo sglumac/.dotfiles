@@ -27,19 +27,6 @@ vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Go 
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Hover' })
 vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = 'References' })
 
--- Debug mappings
-vim.keymap.set('n', '<leader>db', '<cmd>DapToggleBreakpoint<CR>', { desc = 'Toggle Breakpoint' })
-vim.keymap.set('n', '<leader>do', '<cmd>DapStepOut<CR>', { desc = 'Step Out' })
-vim.keymap.set('n', '<leader>dn', '<cmd>DapStepOver<CR>', { desc = 'Step Over' })
-vim.keymap.set('n', '<leader>ds', '<cmd>DapStepInto<CR>', { desc = 'Step Into' })
-vim.keymap.set('n', '<leader>dt', '<cmd>DapClearBreakpoints<CR>', { desc = 'Clear Breakpoints' })
-vim.keymap.set('n', '<leader>dc', '<cmd>DapContinue<CR>', { desc = 'Continue' })
-vim.keymap.set('n', '<leader>dq', '<cmd>DapTerminate<CR>', { desc = 'Terminate' })
-vim.keymap.set('n', '<leader>du', '<cmd>DapStackUp<CR>', { desc = 'Stack Up' })
-vim.keymap.set('n', '<leader>dd', '<cmd>DapStackDown<CR>', { desc = 'Stack Down' })
-vim.keymap.set('n', '<leader>df', '<cmd>Telescope dap configurations<CR>', { desc = 'Debug Configurations' })
-vim.keymap.set('n', '<leader>dr', '<cmd>DapRunLast<CR>', { desc = 'Re/Start Last Config' })
-
 -- Buffer keymaps (barbar)
 for i = 1, 9 do
   vim.keymap.set('n', '<leader>b' .. i, '<cmd>BufferGoto ' .. i .. '<CR>',
