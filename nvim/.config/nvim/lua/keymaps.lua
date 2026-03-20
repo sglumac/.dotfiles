@@ -40,8 +40,8 @@ vim.keymap.set('n', '<leader>b[', '<cmd>BufferPrevious<CR>', { desc = 'Previous 
 vim.keymap.set('n', '<leader>bf', '<cmd>Telescope buffers<CR>', { desc = 'List Buffers' })
 
 vim.keymap.set('n', '<leader>bo', '<cmd>BufferCloseAllButCurrent<CR>', { desc = 'Close all other buffers' })
-vim.keymap.set('n', '<leader>bp', '<cmd>BufferCloseAllButPinned<CR>', { desc = 'Close all non-pinned' })
-vim.keymap.set('n', '<leader>bn', '<cmd>BufferPin<CR>', { desc = 'Pin buffer' })
+vim.keymap.set('n', '<leader>bO', '<cmd>BufferCloseAllButPinned<CR>', { desc = 'Close all non-pinned' })
+vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<CR>', { desc = 'Pin buffer' })
 vim.keymap.set('n', '<leader>bq', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
 
 -- Aerial keymaps
@@ -84,3 +84,12 @@ vim.keymap.set('n', '<leader>xd', '<cmd>Trouble diagnostics toggle<CR>', { desc 
 vim.keymap.set('n', '<leader>xf', '<cmd>Trouble qflist toggle<CR>', { desc = 'Quickfix (Trouble)' })
 vim.keymap.set('n', '<leader>x]', '<cmd>TroubleNext<CR>', { desc = 'Next Trouble / quickfix item' })
 vim.keymap.set('n', '<leader>x[', '<cmd>TroublePrev<CR>', { desc = 'Previous Trouble / quickfix item' })
+
+-- Breadcrumb keymaps
+vim.keymap.set("n", "<leader>;b", function()
+  require("dropbar.api").pick()
+end, { desc = "Dropbar: Select breadcrumb component" })
+
+vim.keymap.set("n", "<leader>;p", function()
+  require("dropbar.api").goto_parent()
+end, { desc = "Dropbar: Go to parent scope" })

@@ -9,10 +9,12 @@ return {
     require('vscode').setup({
       -- Alternatively, you can set the style here:
       -- style = 'light'
-      italic_comments = true, -- Enable italic comments (optional)
+      italic_comments = true,     -- Enable italic comments (optional)
       disable_nvimtree_bg = true, -- Prevents background color in nvim-tree (optional)
     })
     vim.cmd.colorscheme('vscode')
+
+    vim.api.nvim_set_hl(0, "WinBar", { bold = false })
+    vim.api.nvim_set_hl(0, "WinBarNC", { bold = false })
   end,
 }
-

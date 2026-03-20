@@ -14,10 +14,10 @@ return {
     clickable = true,
     icons = {
       buffer_index = true,
+      pinned = {
+        filename = true,
+        button = '󰐃',
+      },
     },
   },
-  config = function(_, opts)
-    require('barbar').setup(opts)
-  end,
-
 }
