@@ -44,10 +44,6 @@ vim.keymap.set('n', '<leader>bO', '<cmd>BufferCloseAllButPinned<CR>', { desc = '
 vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<CR>', { desc = 'Pin buffer' })
 vim.keymap.set('n', '<leader>bq', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
 
--- Aerial keymaps
-vim.keymap.set('n', '<leader>ar', '<cmd>AerialToggle<CR>', { desc = 'Toggle Aerial outline' })
-vim.keymap.set('n', '<leader>fs', '<cmd>Telescope aerial<CR>', { desc = 'Symbol find' })
-
 -- Format keymap
 vim.keymap.set('n', '<leader>ft', '<cmd>lua vim.lsp.buf.format()<CR>', { desc = 'Format buffer' })
 
@@ -85,11 +81,13 @@ vim.keymap.set('n', '<leader>xf', '<cmd>Trouble qflist toggle<CR>', { desc = 'Qu
 vim.keymap.set('n', '<leader>x]', '<cmd>TroubleNext<CR>', { desc = 'Next Trouble / quickfix item' })
 vim.keymap.set('n', '<leader>x[', '<cmd>TroublePrev<CR>', { desc = 'Previous Trouble / quickfix item' })
 
--- Breadcrumb keymaps
-vim.keymap.set("n", "<leader>;b", function()
-  require("dropbar.api").pick()
-end, { desc = "Dropbar: Select breadcrumb component" })
+-- Symbol navigation
+vim.keymap.set("n", "<leader>su", function() require("dropbar.api").goto_context_start(1) end,
+  { desc = "Go to parent symbol" })
+vim.keymap.set("n", "<leader>sp", function() require("dropbar.api").pick() end,
+  { desc = "Pick breadcrumb component" })
+vim.keymap.set('n', '<leader>s[', '<cmd>AerialPrev<CR>', { desc = 'Previous symbol' })
+vim.keymap.set('n', '<leader>s]', '<cmd>AerialNext<CR>', { desc = 'Next symbol' })
+vim.keymap.set('n', '<leader>sf', '<cmd>Telescope aerial<CR>', { desc = 'Symbol find' })
+vim.keymap.set('n', '<leader>so', '<cmd>AerialToggle<CR>', { desc = 'Toggle Aerial outline' })
 
-vim.keymap.set("n", "<leader>;p", function()
-  require("dropbar.api").goto_parent()
-end, { desc = "Dropbar: Go to parent scope" })

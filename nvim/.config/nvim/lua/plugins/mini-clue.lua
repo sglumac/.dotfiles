@@ -72,9 +72,9 @@ return {
         { mode = 'n', keys = '<leader>b]',    postkeys = '<leader>b',             desc = 'next buffer' },
         { mode = 'n', keys = '<leader>b[',    postkeys = '<leader>b',             desc = 'previous buffer' },
         { mode = 'n', keys = '<leader>bq',    postkeys = '<leader>b',             desc = 'close buffer' },
+        { mode = 'n', keys = '<leader>bp',    postkeys = '<leader>b',             desc = 'pin buffer' },
         { mode = 'n', keys = '<leader>bo',    desc = 'close all other buffers' },
-        { mode = 'n', keys = '<leader>bp',    desc = 'close non-pinned' },
-        { mode = 'n', keys = '<leader>bn',    desc = 'pin buffer' },
+        { mode = 'n', keys = '<leader>bO',    desc = 'close non-pinned' },
         { mode = 'n', keys = '<leader>bf',    desc = 'list buffers' },
 
         -- Leader + c (code)
@@ -95,7 +95,6 @@ return {
         { mode = 'n', keys = '<leader>fH',    desc = 'highlight groups' },
         { mode = 'n', keys = '<leader>fm',    desc = 'marks' },
         { mode = 'n', keys = '<leader>fj',    desc = 'jumplist' },
-        { mode = 'n', keys = '<leader>fs',    desc = 'symbol find' },
         { mode = 'n', keys = '<leader>ft',    desc = 'format buffer' },
 
         -- Leader + n (neo-tree)
@@ -113,9 +112,6 @@ return {
         { mode = 'n', keys = '<leader>x]',    postkeys = '<leader>x',             desc = 'next trouble' },
         { mode = 'n', keys = '<leader>x[',    postkeys = '<leader>x',             desc = 'previous trouble' },
 
-        -- Leader + a (aerial)
-        { mode = 'n', keys = '<leader>ar',    desc = 'toggle aerial outline' },
-
         -- Leader + r (refactor/rename)
         { mode = 'n', keys = '<leader>rn',    desc = 'rename symbol' },
 
@@ -126,6 +122,14 @@ return {
         { mode = 'n', keys = 'gr',            desc = 'show references' },
         { mode = 'n', keys = 'K',             desc = 'hover' },
         { mode = 'n', keys = '<F4>',          desc = 'toggle floating terminal' },
+        -- Leader + s (symbol navigation)
+        { mode = 'n', keys = '<leader>su',    postkeys = '<leader>s',             desc = 'go to parent symbol' },
+        { mode = 'n', keys = '<leader>s]',    postkeys = '<leader>s',             desc = 'go to next symbol' },
+        { mode = 'n', keys = '<leader>s[',    postkeys = '<leader>s',             desc = 'go to previous symbol' },
+        { mode = 'n', keys = '<leader>sp',    desc = 'pick breadcrumb component' },
+        { mode = 'n', keys = '<leader>sf',    desc = 'symbol find' },
+        { mode = 'n', keys = '<leader>so',    desc = 'toggle aerial outline' },
+
       },
     })
   end,

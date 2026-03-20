@@ -4,22 +4,16 @@ return {
     require("aerial").setup({
       backends = { "lsp", "treesitter", "markdown" },
       filter_kind = { -- :help SymbolKind
-        "Class",
-        "Function",
-        "Method",
-        "Constructor",
-        "Interface",
-        "Module",
-        "Namespace",
-        "Struct",
-        "Enum",
-        "EnumMember",
-        "Constant",
-        "Field",
-        "Property",
-        "Event",
-        "Operator",
-        "TypeParameter",
+        -- High-level
+        "Module", "Namespace",
+        -- Types
+        "Class", "Struct", "Interface", "Enum", "TypeParameter", "TypeAlias",
+        -- Callables
+        "Function", "Method", "Constructor",
+        -- Data
+        "Field", "Property", "Constant", "EnumMember", "Variable",
+        -- Optional
+        "Event", "Operator",
       },
       layout = {
         default_direction = "right",
