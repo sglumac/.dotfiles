@@ -62,4 +62,3 @@ vim.o.wrap = true
 -- Commands and keymaps
 require('commands')
 require('keymaps')
-

@@ -7,7 +7,13 @@ vim.keymap.set('n', '<leader>yd', '<cmd>DiagnosticYank<CR>', { desc = 'Copy diag
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true, desc = 'Exit insert mode' })
 vim.keymap.set('t', 'kj', [[<C-\><C-n>]], { noremap = true, silent = true, desc = 'Exit terminal mode' })
 
+-- Yank/Copy keymaps
 vim.keymap.set('v', '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Copy to clipboard' })
+vim.keymap.set('n', '<leader>ym', '<cmd>YankMessages<CR>', { desc = 'Copy last message' })
+vim.keymap.set('n', '<leader>yp', '<cmd>YankFilePath<CR>', { desc = 'Copy file path' })
+vim.keymap.set('n', '<leader>yl', '<cmd>YankFileLine<CR>', { desc = 'Copy file:line number' })
+
+-- General keymaps
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save buffer' })
 vim.keymap.set('n', '<leader>qw', '<cmd>wq<CR>', { desc = 'Save and close buffer' })
@@ -15,8 +21,6 @@ vim.keymap.set('n', '<leader>qx', '<cmd>q!<CR>', { desc = 'Quit without saving' 
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit current window' })
 vim.keymap.set('n', '<leader><Tab>', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
 vim.keymap.set('n', '<leader>qa', '<cmd>qa<CR>', { desc = 'Quit all windows' })
-vim.keymap.set('n', '<leader>my', '<cmd>YankMessages<CR>', { desc = 'Copy last message to clipboard' })
-vim.keymap.set('n', '<leader>py', '<cmd>YankFilePath<CR>', { desc = 'Copy file path to clipboard' })
 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename symbol' })
 vim.keymap.set('n', '<leader>nl', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 vim.keymap.set('n', '<leader>ve', '<cmd>ToggleVirtualEdit<CR>', { desc = 'Toggle virtualedit' })
@@ -89,5 +93,4 @@ vim.keymap.set("n", "<leader>sp", function() require("dropbar.api").pick() end,
 vim.keymap.set('n', '<leader>s[', '<cmd>AerialPrev<CR>', { desc = 'Previous symbol' })
 vim.keymap.set('n', '<leader>s]', '<cmd>AerialNext<CR>', { desc = 'Next symbol' })
 vim.keymap.set('n', '<leader>sf', '<cmd>Telescope aerial<CR>', { desc = 'Symbol find' })
-vim.keymap.set('n', '<leader>so', '<cmd>AerialToggle<CR>', { desc = 'Toggle Aerial outline' })
-
+vim.keymap.set('n', '<leader>sa', '<cmd>AerialToggle<CR>', { desc = 'Toggle Aerial outline' })

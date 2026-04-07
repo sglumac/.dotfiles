@@ -25,6 +25,12 @@ vim.api.nvim_create_user_command('DiagnosticYank', function()
   vim.notify("Diagnostic copied to clipboard", vim.log.levels.INFO)
 end, { desc = 'Copy diagnostic under cursor to clipboard' })
 
+vim.api.nvim_create_user_command("YankFileLine", function()
+  local file = vim.fn.expand("%:p")
+  local line = vim.fn.line(".")
+  vim.fn.setreg("+", file .. ":" .. line)
+end, {})
+
 -- Clipboard commands
 vim.api.nvim_create_user_command('YankFilePath', function()
   local path = vim.api.nvim_buf_get_name(0)
@@ -62,9 +68,9 @@ vim.keymap.set('n', '<leader>ml', '<cmd>QFLoadLog /tmp/build.log<CR>', { desc = 
 
 -- Trouble navigation commands
 vim.api.nvim_create_user_command('TroubleNext', function()
-    require('trouble').next({ skip_groups = true, jump = true })
+  require('trouble').next({ skip_groups = true, jump = true })
 end, { desc = 'Next Trouble / quickfix item' })
 
 vim.api.nvim_create_user_command('TroublePrev', function()
-    require('trouble').prev({ skip_groups = true, jump = true })
+  require('trouble').prev({ skip_groups = true, jump = true })
 end, { desc = 'Previous Trouble / quickfix item' })

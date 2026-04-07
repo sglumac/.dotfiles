@@ -11,9 +11,9 @@ return {
         -- Callables
         "Function", "Method", "Constructor",
         -- Data
-        "Field", "Property", "Constant", "EnumMember", "Variable",
+        -- "Field", "Property", "Constant", "EnumMember", "Variable",
         -- Optional
-        "Event", "Operator",
+        -- "Event", "Operator",
       },
       layout = {
         default_direction = "right",

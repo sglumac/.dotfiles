@@ -41,7 +41,7 @@ return {
         { mode = 'n', keys = '<C-w>>',        postkeys = '<C-w>',                 desc = 'increase width' },
 
         -- Leader keys (general)
-        { mode = 'n', keys = '<leader>y',     desc = 'copy to clipboard' },
+        { mode = 'v', keys = '<leader>y',     desc = 'copy to clipboard' },
         { mode = 'n', keys = '<leader>p',     desc = 'paste from clipboard' },
         { mode = 'n', keys = '<leader>w',     desc = 'save buffer' },
         { mode = 'n', keys = '<leader>wq',    desc = 'save and close' },
@@ -51,10 +51,13 @@ return {
         { mode = 'n', keys = '<leader><Tab>', desc = 'open new tab' },
         { mode = 'n', keys = '<leader>nl',    desc = 'clear search highlight' },
         { mode = 'n', keys = '<leader>ud',    desc = 'toggle diagnostics' },
-        { mode = 'n', keys = '<leader>yd',    desc = 'copy diagnostic' },
-        { mode = 'n', keys = '<leader>my',    desc = 'copy last message' },
-        { mode = 'n', keys = '<leader>py',    desc = 'copy file path' },
         { mode = 'n', keys = '<leader>ve',    desc = 'toggle virtualedit' },
+
+        -- Leader + y (yank/copy)
+        { mode = 'n', keys = '<leader>ym',    desc = 'copy message' },
+        { mode = 'n', keys = '<leader>yp',    desc = 'copy path' },
+        { mode = 'n', keys = '<leader>yl',    desc = 'copy file:line' },
+        { mode = 'n', keys = '<leader>yd',    desc = 'copy diagnostic' },
 
         -- Leader + b + number (buffer jump)
         { mode = 'n', keys = '<leader>b1',    postkeys = '<leader>b',             desc = 'go to buffer 1' },
@@ -73,6 +76,7 @@ return {
         { mode = 'n', keys = '<leader>b[',    postkeys = '<leader>b',             desc = 'previous buffer' },
         { mode = 'n', keys = '<leader>bq',    postkeys = '<leader>b',             desc = 'close buffer' },
         { mode = 'n', keys = '<leader>bp',    postkeys = '<leader>b',             desc = 'pin buffer' },
+        { mode = 'n', keys = '<leader>b<CR>', desc = 'quit buffer hydra' },
         { mode = 'n', keys = '<leader>bo',    desc = 'close all other buffers' },
         { mode = 'n', keys = '<leader>bO',    desc = 'close non-pinned' },
         { mode = 'n', keys = '<leader>bf',    desc = 'list buffers' },
@@ -107,10 +111,11 @@ return {
         { mode = 'n', keys = '<leader>ss',    desc = 'find session' },
 
         -- Leader + x (trouble/diagnostics)
-        { mode = 'n', keys = '<leader>xd',    desc = 'diagnostics (trouble)' },
-        { mode = 'n', keys = '<leader>xf',    desc = 'quickfix (trouble)' },
         { mode = 'n', keys = '<leader>x]',    postkeys = '<leader>x',             desc = 'next trouble' },
         { mode = 'n', keys = '<leader>x[',    postkeys = '<leader>x',             desc = 'previous trouble' },
+        { mode = 'n', keys = '<leader>xd',    desc = 'diagnostics (trouble)' },
+        { mode = 'n', keys = '<leader>xf',    desc = 'quickfix (trouble)' },
+        { mode = 'n', keys = '<leader>x<CR>', desc = 'quit trouble hydra' },
 
         -- Leader + r (refactor/rename)
         { mode = 'n', keys = '<leader>rn',    desc = 'rename symbol' },
@@ -128,7 +133,7 @@ return {
         { mode = 'n', keys = '<leader>s[',    postkeys = '<leader>s',             desc = 'go to previous symbol' },
         { mode = 'n', keys = '<leader>sp',    desc = 'pick breadcrumb component' },
         { mode = 'n', keys = '<leader>sf',    desc = 'symbol find' },
-        { mode = 'n', keys = '<leader>so',    desc = 'toggle aerial outline' },
+        { mode = 'n', keys = '<leader>sa',    desc = 'toggle aerial outline' },
 
       },
     })
