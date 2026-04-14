@@ -1,6 +1,10 @@
 -- Diagnostic commands
 vim.api.nvim_create_user_command('DiagnosticNext', function()
-  vim.diagnostic.jump({ count = 1, float = true })
+  vim.diagnostic.goto_next({
+    on_jump = function()
+      vim.diagnostic.open_float()
+    end,
+  })
 end, { desc = 'Jump to next diagnostic' })
 
 vim.api.nvim_create_user_command('DiagnosticPrev', function()
