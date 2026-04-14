@@ -71,6 +71,7 @@ return {
             hidden = true,
           },
           live_grep = {
+            theme = "dropdown",
             only_sort_text = true,
             additional_args = function()
               return { "--hidden" }
